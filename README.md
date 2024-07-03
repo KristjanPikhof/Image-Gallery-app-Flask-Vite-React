@@ -15,40 +15,41 @@ This is a full-stack web application built using Flask for the backend and Vite 
    ```
 
 2. **Activate the virtual environment**:
-```bash
-source myenv/bin/activate
-```
+    ```bash
+    source myenv/bin/activate
+    ```
 
 3. **Install the required dependencies**:
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 4. **Start the Flask app**:
-```bash
-python app.py
-```
+    ```bash
+    python app.py
+    ```
 
-5. **Setup the React app**.
-- First open folder _client_ in the root:
-```bash
-cd client
-```
+5. **Setup the React app**:
+    - First open folder _client_ in the root:
+        ```bash
+        cd client
+        ```
 
-- Install dependencies:
-```bash
-npm install
-```
+    - Install dependencies:
+        ```bash
+        npm install
+        ```
 
-- Start the React app:
-```bash
-npm run dev
-```
+    - Start the React app:
+        ```bash
+        npm run dev
+        ```
 
 ## Features
 
 - Users can upload photos to the gallery.
-- Users can view and manage their uploaded photos.
+- Users can create folders.
+- Users can view their uploaded photos in folders.
 - Photos are stored on the server and displayed in the gallery.
 
 ## Technologies Used
