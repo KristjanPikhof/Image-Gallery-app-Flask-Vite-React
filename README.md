@@ -1,6 +1,6 @@
 # Photo Gallery
 
-This is a full-stack web application built using Flask for the backend and Vite React for the frontend. It allows users to upload and manage their photos in a gallery.
+This is a full-stack web application built using Flask for the backend and Vite React for the frontend. It allows users to upload and browse their photos in a gallery.
 
 ## Prerequisites
 
