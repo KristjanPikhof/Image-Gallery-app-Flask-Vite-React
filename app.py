@@ -12,7 +12,7 @@ load_dotenv()
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 env_local_path = os.path.join(os.path.dirname(__file__), 'client', '.env.local')
 
-# Write the environment variables to the .env.local file
+# Write the environment variables to the .env.local file in /client folder
 with open(env_local_path, 'w') as env_local_file:
     with open(env_path, 'r') as env_file:
         for line in env_file:
@@ -40,7 +40,7 @@ ALLOWED_EXTENSIONS = {
 }
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024  # 16MB max file size
+app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024  # 32MB max file size
 
 UPLOAD_PASSWORD = os.getenv('UPLOAD_PASSWORD', '')
 
@@ -94,7 +94,7 @@ def upload_file():
 def get_images():
     folder = request.args.get('folder', '')
     path = os.path.join(app.config['UPLOAD_FOLDER'], folder)
-    print(f"Searching for images in: {path}")
+    print(f"Searching for images in: {path}")  # Debug print
     images = []
     for root, dirs, files in os.walk(path):
         for file in files:
@@ -116,7 +116,7 @@ def get_images():
                     print(f"Added image: {image_info}")
                 except Exception as e:
                     print(f"Error processing image {file}: {str(e)}")
-    print(f"Total images found: {len(images)}")
+    print(f"Total images found: {len(images)}")  # Debug print
     return jsonify(images)
 
 @app.route('/api/folders', methods=['GET'])
@@ -140,19 +140,19 @@ def create_folder():
     folder_name = request.json.get('folderName')
     parent_folder = request.json.get('parentFolder', '')
     if not folder_name:
-        print("No folder name provided")
+        print("No folder name provided")  # Debug print
         return jsonify({'error': 'No folder name provided'}), 400
     
     new_folder_path = os.path.join(app.config['UPLOAD_FOLDER'], parent_folder, folder_name)
     try:
         os.makedirs(new_folder_path)
-        print(f"Folder created successfully at {new_folder_path}")
+        print(f"Folder created successfully at {new_folder_path}")  # Debug print
         return jsonify({'message': 'Folder created successfully'}), 200
     except FileExistsError:
-        print(f"Folder already exists: {new_folder_path}")
+        print(f"Folder already exists: {new_folder_path}")  # Debug print
         return jsonify({'error': 'Folder already exists'}), 400
     except Exception as e:
-        print(f"Error creating folder: {str(e)}")
+        print(f"Error creating folder: {str(e)}")  # Debug print
         return jsonify({'error': f'Error creating folder: {str(e)}'}), 500
 
 @app.route('/images/<path:filename>')
