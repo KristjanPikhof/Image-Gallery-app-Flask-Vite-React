@@ -154,17 +154,17 @@ const ImageGallery = ({ images, onImageSelect }) => {
                   alt={image.name}
                   style={{ objectFit: 'cover' }}
                 />
-                <IconButton
+              </div>
+              <CardContent style={{ padding: '5px' }}>
+                <Typography variant="body2" noWrap>{image.name}</Typography>
+              </CardContent>
+              <IconButton
                   size="small"
                   className="image-info-button"
                   onClick={(e) => handleInfoClick(e, image)}
                 >
                   <InfoIcon />
                 </IconButton>
-              </div>
-              <CardContent style={{ padding: '8px' }}>
-                <Typography variant="body2" noWrap>{image.name}</Typography>
-              </CardContent>
             </Card>
           </Grid>
         ))}

@@ -20,8 +20,7 @@ const Breadcrumbs = ({ currentFolder, setCurrentFolder }) => {
         className="breadcrumb-link"
         style={{ display: 'flex', alignItems: 'center' }}
       >
-        <HomeIcon fontSize="small" style={{ marginRight: '4px' }} />
-        Root
+        <HomeIcon fontSize="small"/>
       </Link>
       {pathParts.map((part, index) => {
         const path = pathParts.slice(0, index + 1).join('/');

@@ -27,7 +27,7 @@ const Sidebar = ({ folders, setCurrentFolder, onCreateFolder, currentFolder }) =
               if (hasChildren) toggleFolder(fullPath);
             }}
             className={`folder-item ${isSelected ? 'selected' : ''}`}
-            style={{ paddingLeft: `${depth * 16}px` }}
+            style={{ paddingLeft: `${depth * 2}em` }}
           >
             {hasChildren && (
               openFolders[fullPath] ? <ExpandLess /> : <ExpandMore />
@@ -58,16 +58,16 @@ const Sidebar = ({ folders, setCurrentFolder, onCreateFolder, currentFolder }) =
   };
 
   return (
-    <Box className="sidebar" sx={{ width: '250px', height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ padding: '10px', display: 'flex', alignItems: 'center' }}>
+    <Box className="sidebar" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ paddingTop: '10px', display: 'flex', alignItems: 'center' }}>
         <IconButton onClick={() => setCurrentFolder(currentFolder.split('/').slice(0, -1).join('/'))}>
-          <ArrowBack />
+          <ArrowBack fontSize="small"/>
         </IconButton>
-        <Typography variant="body2" noWrap sx={{ marginLeft: '10px', flexGrow: 1 }}>
+        <Typography variant="body2" noWrap sx={{ marginLeft: '5px', flexGrow: 1 }}>
           {currentFolder || 'Root'}
         </Typography>
       </Box>
-      <List sx={{ flexGrow: 1, overflowY: 'auto' }}>
+      <List sx={{ flexGrow: 1, overflowY: 'auto'}}>
         {renderFolders(folders)}
       </List>
       <Box sx={{ display: 'flex', padding: '10px' }}>
