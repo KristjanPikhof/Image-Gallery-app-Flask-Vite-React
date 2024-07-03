@@ -6,10 +6,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: '${import.meta.env.VITE_FLASK_URL}',
+        target: process.env.VITE_FLASK_URL,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
+    },
+    hmr: {
+      host: process.env.VITE_APP_URL || 'localhost:5173',
+      protocol: 'wss',
     },
   },
 })

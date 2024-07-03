@@ -19,7 +19,7 @@ with open(env_local_path, 'w') as env_local_file:
             key, value = line.strip().split('=', 1)
             env_local_file.write(f"{key}={value}\n")
 
-VITE_APP_URL = os.getenv('VILE_APP_URL', 'http://localhost:5173')
+VITE_APP_URL = os.getenv('VITE_APP_URL', 'http://localhost:5173')
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": VITE_APP_URL, "methods": ["GET", "POST", "OPTIONS"]}})
